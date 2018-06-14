@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> — мое приложение ASP.NET</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <asp:PlaceHolder runat="server">           
+        <script src="<%: ResolveUrl("~/Scripts/modernizr-2.6.2.js") %>"></script>
+    </asp:PlaceHolder>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form runat="server">
+    <asp:ScriptManager runat="server">
+        <Scripts>
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="jquery.ui.combined" />
+        </Scripts>
+    </asp:ScriptManager>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">
+                    <img alt="ÐÐ°ÑÑÐ¸Ð½ÐºÐ¸ Ð¿Ð¾ Ð·Ð°Ð¿ÑÐ¾ÑÑ D&amp;D" src="data:image/png;base64,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" /></p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul>
+                                <li><a id="registerLink" runat="server" href="~/Account/Register">Зарегистрироваться</a></li>
+                                <li><a id="loginLink" runat="server" href="~/Account/Login">Вход</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Account/Manage">смена пароля</asp:HyperLink>
+                            <p>
+                                привет, 
+                                    <asp:LoginName runat="server" CssClass="username" />
+                                !
+                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Выход" LogoutPageUrl="~/" />
+                            </p>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li><a runat="server" href="~/">Домашняя</a></li>
+                        <li><a runat="server" href="~/About">Информация</a></li>
+                        <li><a runat="server" href="~/Contact">Связаться</a></li>
+                                           <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                           <li> <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Account/MembersOnly">расписание встреч</asp:HyperLink></li>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+    </div>
+
+    </form>
+</body>
+</html>
+
